@@ -1,0 +1,73 @@
+Prompt to Fix Scrolling & Date Display Issues in Medication Reminder Popup
+📌 Objective:
+Make the popup scrollable so users can view and interact with the entire content on smaller screens or lower resolutions.
+
+Fix date handling so that:
+
+"Start Date" defaults to today's date.
+
+Only today's medications are shown as "Today" — not all with the same label.
+
+🧩 Features to Implement
+✅ 1. Make the Modal Scrollable
+Fix: Wrap your popup/modal content inside a scrollable container and limit the modal’s height using Tailwind CSS or CSS.
+
+tsx
+Copy
+Edit
+<div className="max-h-[90vh] overflow-y-auto p-4">
+  {/* Modal content here */}
+</div>
+If using a library like Radix UI or Headless UI Modal, ensure it supports scroll locking, or manually set the overflow on the modal content wrapper.
+
+✅ 2. Fix Date Display: 'Today' Shown for All Meds
+Bug: You're likely displaying "Today" if the date matches today's date, but not checking each individual medication's start date correctly.
+
+Fix logic in JS/TS:
+
+ts
+Copy
+Edit
+const isToday = (date: string | Date) => {
+  const today = new Date();
+  const inputDate = new Date(date);
+  return (
+    today.getFullYear() === inputDate.getFullYear() &&
+    today.getMonth() === inputDate.getMonth() &&
+    today.getDate() === inputDate.getDate()
+  );
+};
+Then when rendering:
+
+tsx
+Copy
+Edit
+{isToday(med.startDate)
+  ? "Today"
+  : format(new Date(med.startDate), "MMMM d, yyyy")}
+Use date-fns for formatting if needed.
+
+✅ Extra (Optional) Enhancement:
+You can also add modal scrolling behavior on mobile with:
+
+css
+Copy
+Edit
+html, body {
+  overscroll-behavior: contain;
+}
+And Tailwind approach for mobile-friendly scrollable modals:
+
+tsx
+Copy
+Edit
+<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl shadow-lg p-6">
+    {/* Your form */}
+  </div>
+</div>
+✅ Summary
+Feature	Fix
+Popup not scrollable	Add max-h-[90vh] overflow-y-auto to modal container
+Every date showing "Today"	Use a correct date comparison function
+UX improvement	Format with date-fns, show exact dates after today

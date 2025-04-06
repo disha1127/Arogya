@@ -1,0 +1,105 @@
+Absolutely! Here's a **well-structured and developer-ready prompt** to build a feature in AROGYA where users can input key health metrics like **weight, blood pressure, and sugar levels**, visualize them with dynamic graphs, and have the data stored securely for history and analysis.
+
+---
+
+### 📊 **Prompt: Build a Health Tracker Feature with Graphs and Data Storage for AROGYA**
+
+---
+
+#### 🧭 **Goal:**
+Develop a feature that lets users:
+- Manually enter health metrics like **weight, blood pressure, and blood sugar levels**
+- Store those inputs tied to their user profile
+- Visualize the trends over time using **interactive graphs**
+
+---
+
+### 🧩 **Feature Components**
+
+#### 1. 📝 **Health Input Form**
+
+Create a form for users to submit the following:
+
+- **Date & Time** (auto-filled or user-selectable)
+- **Weight** (in kg)
+- **Blood Pressure** (Systolic/Diastolic)
+- **Blood Sugar Level** (mg/dL - Fasting/Postprandial toggle)
+- Optional: Pulse Rate, Temperature
+
+> 🧠 Use React Hook Form + Zod validation for inputs  
+> 📅 Include a date picker (e.g., `react-datepicker`)
+
+---
+
+#### 2. 📈 **Health Data Visualization**
+
+- Show **interactive graphs** for each metric using Recharts (or Chart.js).
+- Graph types:
+  - **Line Chart**: Track metric trends over time (X: Date, Y: Metric)
+  - **Bar Chart**: Weekly averages or comparisons
+- Users can:
+  - Filter by date range (e.g., Last 7 Days, This Month, Custom)
+  - Hover on data points to see exact values
+  - Toggle metrics on/off to compare (like weight vs sugar)
+
+---
+
+#### 3. 💾 **Data Storage (Using Prisma/PostgreSQL)**
+
+##### **User Table** (if not already set)
+```ts
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  healthMetrics HealthMetric[]
+}
+```
+
+##### **HealthMetric Table**
+```ts
+model HealthMetric {
+  id             String   @id @default(uuid())
+  userId         String
+  date           DateTime @default(now())
+  weightKg       Float?
+  systolicBP     Int?
+  diastolicBP    Int?
+  sugarLevel     Int?
+  sugarType      String?  // "Fasting" or "Postprandial"
+  pulseRate      Int?
+  temperature    Float?
+  user           User     @relation(fields: [userId], references: [id])
+}
+```
+
+---
+
+### 🧠 **Backend Logic**
+- API routes for:
+  - Adding a new health record (`POST /api/health`)
+  - Fetching historical data by user (`GET /api/health?userId=...`)
+- Include error handling, validation, and filtering logic
+
+---
+
+### 🌐 **Frontend Components**
+- `HealthForm.tsx`: Input form with fields and validation
+- `HealthDashboard.tsx`: Displays graphs with filters and summaries
+- `HealthService.ts`: API handler for CRUD operations
+
+---
+
+### ✅ **Success Checklist**
+
+- [ ] Health input form accepts multiple metrics per entry
+- [ ] Data is stored per user in the DB
+- [ ] Graphs update live with trends over time
+- [ ] Filter by time range or specific metric
+- [ ] Mobile and desktop responsive layout
+- [ ] Optionally show health alerts or threshold markers (e.g., high BP warning)
+
+---
+
+Let me know if you want the **actual code for Prisma schema, API routes, or the graph component setup using Recharts** — I can generate those too!
