@@ -1,0 +1,90 @@
+Enable users to upload and manage their medical documents (PDFs, images, reports) securely. Each file should be linked to their account and categorized for easy reference and retrieval later.
+
+🧩 Key Functionalities to Implement
+1. 📤 Document Upload Interface
+Allow users to upload files through a clean and mobile-friendly form with fields like:
+
+File Upload (PDF, JPG, PNG, etc.)
+
+Title/Label (e.g., "Blood Report - March 2025")
+
+Category (Prescription, Lab Report, Imaging, Discharge Summary, Other)
+
+Date of Document
+
+Optional Notes/Description
+
+Use a file input component with drag-and-drop + preview (if image).
+
+2. 🗃️ Document Management Dashboard
+Show uploaded files in a searchable, filterable list or card/grid view.
+
+Features:
+
+View document
+
+Download
+
+Delete or update metadata (title, category)
+
+Filter by category or date
+
+3. 💾 Database Schema (Prisma + PostgreSQL)
+User Table
+(If not already defined.)
+
+HealthDocument Table
+ts
+Copy
+Edit
+model HealthDocument {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  category    String   // E.g., "Prescription", "Report"
+  fileUrl     String   // Link to file stored in S3 or local
+  uploadedAt  DateTime @default(now())
+  documentDate DateTime
+  notes       String?
+  user        User     @relation(fields: [userId], references: [id])
+}
+4. ☁️ File Storage Options
+Choose one:
+
+Cloud Storage (recommended):
+
+Store files in AWS S3, Firebase Storage, or Cloudinary.
+
+Save only the fileUrl in the database.
+
+Local Storage (dev only):
+
+Store in /public/uploads and reference path in DB.
+
+5. 🔐 Security & Access Control
+Ensure only authenticated users can access/view/download their own files.
+
+Use signed URLs if stored on a public cloud bucket.
+
+⚙️ Tech Stack Suggestions
+Frontend: Next.js + Tailwind + React Dropzone
+
+Backend: Next.js API Routes for file handling & DB ops
+
+Storage: S3 (with presigned upload URLs)
+
+Database: PostgreSQL with Prisma ORM
+
+Auth: NextAuth.js for user identification
+
+✅ Success Checklist
+ Users can upload, tag, and view medical documents
+
+ Each file is securely linked to the user
+
+ Filter/search based on category and date
+
+ Files are stored safely (cloud/local with proper access control)
+
+ Clean, intuitive UI with preview/download/delete options
+

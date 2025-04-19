@@ -1,0 +1,88 @@
+Develop a user-friendly, accurate, and accessible Symptom Checker page/section for the AROGYA platform that collects user health data through checklists and optional inputs, then intelligently outputs possible health conditions with descriptive, actionable results.
+
+🧩 Functional Requirements:
+1. Symptom Checklist UI
+Display a categorized checklist of common symptoms:
+
+General: Fever, Fatigue, Weight Loss, etc.
+
+Respiratory: Cough, Shortness of breath, Chest pain.
+
+Digestive: Nausea, Vomiting, Abdominal pain, Diarrhea.
+
+Neurological: Headache, Dizziness, Confusion.
+
+Musculoskeletal: Joint pain, Muscle ache, Swelling.
+
+Other: Skin rash, Eye irritation, etc.
+
+Allow users to select multiple symptoms via checkboxes.
+
+Enable real-time filtering or search for symptoms (optional enhancement).
+
+2. Optional User Inputs
+Create a form section for collecting extra user details to personalize results:
+
+🔹 Age (number input)
+
+🔹 Gender (dropdown or radio)
+
+🔹 Pre-existing conditions (checkbox or multi-select: Diabetes, Hypertension, etc.)
+
+🔹 Duration of symptoms (dropdown: <1 day, 1–3 days, 1 week, etc.)
+
+🔹 Additional Info (text area for anything not listed)
+
+3. Result Output (Descriptive & Actionable)
+Once users submit:
+
+Show 3–5 possible health conditions matched with:
+
+🔍 Condition Name
+
+📄 Brief Description
+
+🧠 Why it’s a match (based on selected symptoms)
+
+🚨 Severity level (mild, moderate, severe)
+
+👨‍⚕️ Recommended Action (e.g., see a GP, visit ER, try home care)
+
+Include a disclaimer that this is not a medical diagnosis and advise contacting a professional.
+
+🌐 Accessibility & UX Enhancements
+All inputs should support screen readers (aria-labels, proper HTML semantics).
+
+Use visual feedback (e.g., check animations, color-coded severity).
+
+Mobile-first responsive design.
+
+Keyboard accessible.
+
+⚙️ Technical Suggestions
+Use React Hook Form + Zod for validations.
+
+Backend (optional):
+
+Light ML model or rule-based engine (e.g., mapping symptoms to conditions via JSON/DB).
+
+Consider using a public API like Infermedica or a locally maintained symptom-condition map.
+
+📊 Bonus Feature (Optional)
+Add a confidence meter or health risk meter based on symptoms.
+
+Allow user to download or email results for future reference.
+
+✅ Deliverables:
+ Symptom checklist interface
+
+ Extra info form
+
+ Result component with condition matches
+
+ Responsive and accessible UI
+
+ Integrated with routing/navigation
+
+ Error handling and edge case handling
+

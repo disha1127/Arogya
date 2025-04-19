@@ -1,0 +1,111 @@
+Build a smart diet planning system that delivers customized meal plans based on user input like medical conditions, allergies, dietary goals, and the region of India the user lives in. The output should be practical, culturally relevant, and nutritionally balanced.
+
+🔍 Key Features to Implement
+1. 🧑‍⚕️ User Personalization Inputs
+Design a clean and interactive intake form that collects:
+
+Basic Info: Age, Gender, Height, Weight
+
+Health Conditions: (Multi-select) Diabetes, PCOS, Thyroid, Hypertension, etc.
+
+Allergies: Gluten, Dairy, Nuts, Soy, etc.
+
+Fitness Goal: Weight Loss, Weight Gain, Muscle Building, Immunity Boost
+
+Diet Preference: Vegetarian, Non-Vegetarian, Vegan, Jain, Eggetarian
+
+Cuisine Region: North, South, East, West, Northeast India
+
+Meal Frequency: 2/3/4 meals per day
+
+Activity Level: Sedentary, Moderate, Active
+
+2. 🧠 Dynamic Meal Plan Generator
+Create logic (rule-based or ML-enhanced) that produces:
+
+A 7-day meal plan with:
+
+✅ Breakfast, Lunch, Dinner, and Snacks
+
+✅ Macronutrient breakdown (carbs, protein, fat)
+
+✅ Total daily calorie count tailored to goals
+
+Meals should:
+
+Avoid restricted items (from allergy or condition input)
+
+Match regional food habits (e.g., Pongal in South, Thepla in West)
+
+Follow dietary restrictions (e.g., low-GI for diabetes, no fried food for PCOS)
+
+Support food substitutions and swaps
+
+3. 🌍 Regional Cuisine Mapping
+Build or use a dataset that maps Indian regional dishes to:
+
+Ingredients and nutritional info
+
+Availability by region
+
+Cultural relevance and seasonal choices
+
+Example:
+
+North: Dal, Roti, Rajma Chawal
+
+South: Idli, Dosa, Upma, Rasam
+
+East: Rice & Fish, Sukto
+
+West: Thepla, Poha, Sabudana Khichdi
+
+Northeast: Bamboo shoot curry, Rice, Boiled veggies
+
+4. 💡 Smart Output Interface
+Clean, intuitive card/grid layout for daily meals
+
+Tappable/hoverable meals for:
+
+💬 Description
+
+🍽️ Recipes
+
+🔁 Swap suggestion
+
+❤️ Favorite/save button
+
+Include nutritional info popup, portion sizes, and a daily summary
+
+5. 🔁 Customizability and Engagement
+Let users:
+
+Modify meals manually
+
+Save preferred weekly templates
+
+Regenerate plan with different goals or conditions
+
+Add a "Smart Shopping List" generator for the weekly plan
+
+🔧 Tech Suggestions
+Frontend: Next.js + Tailwind + React Hook Form + Recharts
+
+Backend: Next.js API routes + Prisma/PostgreSQL for preferences & meals
+
+Data source: Indian Food Composition Table / FDC API / custom DB
+
+Optional AI: Use GPT/LLM to generate meal ideas and regional suggestions based on prompts
+
+✅ Success Criteria
+ Plan adapts to medical & allergy inputs
+
+ Meals follow regional food culture
+
+ Nutrition goals align with fitness objectives
+
+ Highly usable, beautiful UI with interactive cards
+
+ Meal customization and feedback loop enabled
+
+ Accessible on mobile and desktop

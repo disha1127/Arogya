@@ -1,0 +1,57 @@
+Hey Agent, I’ve just uploaded my full project folder to Replit. Please help me do the following:
+
+---
+
+✅ 1. **Fix All Routing & Directory Issues**
+- Ensure the project structure works smoothly using the existing folders:
+  - `client/` → contains the frontend (Next.js / React)
+  - `server/` → contains backend logic (API routes)
+  - `shared/schema.ts` → contains Drizzle ORM schema
+- Fix routing issues caused by uploading the whole folder to Replit.
+- Reconnect pages and components to proper imports and routes.
+- Ensure `client/pages/index.tsx` or `client/app/page.tsx` loads the homepage correctly.
+- Make sure links like:
+  - `/symptomChecker`
+  - `/dietPlanner`
+  - `/medicationReminders`
+  - `/hospitalLocator`
+  - `/governmentSchemes`
+  - `/healthArticles`
+  are routed properly using the App Router if it's using Next.js 13+.
+- If you find older routing (`pages/`) but App Router (`app/`) is used, help migrate the structure.
+
+---
+
+🌍 2. **Enable Multilingual Support**
+- Add multilingual support using `next-intl` or `react-intl` (whichever suits better with your current setup).
+- Reference the language switcher in the top-right corner (currently shows "हिन्दी").
+- Configure internationalization using `client/app/[locale]/layout.tsx` and `client/app/[locale]/page.tsx` for localized routing.
+- Define locales like:
+  - `en` (default)
+  - `hi` (Hindi)
+  - (optional: add more later)
+- Create a folder: `client/locales/` with files:
+  - `en.json`
+  - `hi.json`
+- Use these files to translate:
+  - Buttons like `getStarted`, `learnMore`
+  - Navigation items
+  - Section titles like `tagline`, `description`, `features`
+
+---
+
+✨ 3. **Use ShadCN Components for UI**
+- Replace basic HTML elements and buttons with components from `shadcn/ui` where possible:
+  - Use `Button`, `DropdownMenu`, `Card`, etc. for consistent styling.
+- Add subtle animations via `Framer Motion` for hero sections or transitions.
+- Keep design as per the existing blue card UI (refer to the image I uploaded earlier).
+
+---
+
+💡 Note:
+- Do not add authentication or API keys.
+- Ensure everything works locally inside Replit.
+- Prioritize simplicity, usability, and UI correctness.
+- Assume the site name is `AROGYA`.
+
+Let me know if you need any specific file content or configs. But for now, fix the routes + setup multilingual + ShadCN polish. ✅

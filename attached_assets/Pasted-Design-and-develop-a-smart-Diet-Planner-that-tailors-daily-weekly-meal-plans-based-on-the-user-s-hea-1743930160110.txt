@@ -1,0 +1,99 @@
+Design and develop a smart Diet Planner that tailors daily/weekly meal plans based on the user's health conditions, allergies, fitness goals, dietary preferences, and regional cuisine availability across India.
+
+🧩 Functional Requirements
+1. User Preference Intake Form
+Create a form to collect the following user inputs:
+
+🔸 Age, Gender, Weight, Height
+
+🔸 Pre-existing Conditions (e.g., Diabetes, Thyroid, Hypertension, PCOS)
+
+🔸 Allergies (e.g., Lactose, Gluten, Peanuts)
+
+🔸 Diet Type (Veg, Non-Veg, Vegan, Jain, Eggetarian, etc.)
+
+🔸 Health Goal (e.g., Weight Loss, Muscle Gain, Boost Immunity, Maintain Fitness)
+
+🔸 Meal Preferences (Number of meals/day, likes/dislikes)
+
+🔸 Region of India (Dropdown: North, South, East, West, Northeast)
+
+2. Personalized Meal Plan Generator
+Based on inputs:
+
+Generate a 7-day meal plan including:
+
+🍽️ Breakfast, Lunch, Dinner, and Snacks
+
+Calorie count and macronutrient breakdown (carbs, proteins, fats)
+
+Plans should:
+
+Avoid allergens and restricted ingredients.
+
+Align with medical conditions (e.g., low-sodium for hypertension).
+
+Support the selected goal (e.g., high protein for muscle gain).
+
+Reflect regional food preferences (e.g., idli/dosa in South, paratha in North, millet in West, rice & fish in East).
+
+3. Region-Specific Food Database
+Build or connect to a regional food mapping dataset:
+
+Food names, ingredients, and nutrition values across India.
+
+Allow users to toggle regional alternatives (e.g., roti → appam → rice bhakri).
+
+4. Interactivity and Feedback
+Users should be able to:
+
+🍽️ Swap dishes (get alternatives)
+
+❤️ Save favorite meals
+
+📝 Add custom dishes
+
+Include a “Today’s Meal Plan” dashboard widget.
+
+📲 Optional Enhancements
+Recipe suggestions for each meal.
+
+Shopping list generator based on weekly meal plan.
+
+Integration with fitness/wearables APIs for calorie sync.
+
+Track water intake and supplement reminders.
+
+🌐 Accessibility & UX
+Use visual food icons, emojis, and region-specific illustrations.
+
+Fully responsive layout.
+
+Provide text-to-speech or voice search options for accessibility.
+
+Use loading skeletons or spinners for better UX.
+
+⚙️ Tech & Tools Suggestions
+Backend: Node.js/Next.js API route with Prisma for user preferences DB.
+
+Frontend: React Context for session preferences, Recharts for nutrition graphs.
+
+Data source: USDA API / Indian Food Composition Table / custom JSON.
+
+Validation: Zod schema for dietary rules and user health data.
+
+✅ Deliverables
+ Dynamic User Input Form
+
+ Personalized Diet Engine
+
+ Indian Regional Food Mapping System
+
+ Responsive UI with real meal plan rendering
+
+ Allergy/Health-condition filtering logic
+
+ Meal swap and favorite system
+
+ Calorie + nutrition tracking per meal
+
